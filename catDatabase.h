@@ -20,7 +20,7 @@
 
 
 extern size_t numberOfCats;
-
+typedef size_t NumCats;
 
 // Gender
 enum Gender {
@@ -66,6 +66,9 @@ struct Cat {
 
 
 };
+
+
+typedef float W;
 
 extern struct Cat cats[];
 void initializeCatDatabase();
