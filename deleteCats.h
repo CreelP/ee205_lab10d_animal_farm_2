@@ -8,11 +8,8 @@
 /// @author Creel Patrocinio <creel@hawaii.edu>
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-#ifndef EE205_LAB_08D_ANIMAL_FARM_1_DELETECATS_H
-#define EE205_LAB_08D_ANIMAL_FARM_1_DELETECATS_H
+#pragma once
 #include "catDatabase.h"
-#include "validate.h"
 
-void deleteAllCats();
-
-#endif //EE205_LAB_08D_ANIMAL_FARM_1_DELETECATS_H
+extern bool deleteAllCats();
+extern bool deleteCat(Cat* deleteThisCat);

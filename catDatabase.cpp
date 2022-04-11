@@ -11,75 +11,38 @@
 
 #include "catDatabase.h"
 #include "config.h"
+#include <stdexcept>
 
-
-size_t numberOfCats = 0;
-struct Cat cats[MAX_CAT];
-
-
+Cat* catDatabaseHeadPointer = nullptr;
+int numberOfCats = 0;
 
 void initializeCatDatabase() {
-    numberOfCats = 0;
-    memset($cats, 0, sizeof(cats));
+    if(catDatabaseHeadPointer != nullptr) {
+        throw std::logic_error(PROGRAM_NAME ":Previous database not empty.");
 }
 
-char *genderLiteral(const enum Gender gender) {
-    switch(gender) {
-        case(UNKNOWN_GENDER):
-            return "UNKNOWN GENDER";
-        case(MALE)
-            return "MALE";
-        case(FEMALE)
-            return "FEMALE";
-        default:
-            return "\0";
-    }
 
+extern bool isCatInDatabase(const Cat* aCat) {
+    Cat* iCat = catDatabaseHeadPointer;
+    while(iCat != nullptr) {
+       if(aCat == iCat) {
+           return true;
+            }
+       iCat = iCat->next;
+       }
+       return false;
 }
 
-char *breedLiteral(const enum Breed breed) {
-    switch (breed) {
-        case (UNKNOWN_BREED):
-            return "UNKNOWN_BREED";
-        case (MAINE_COON):
-            return "MAINE_COON";
-        case (MANX):
-            return "MANX";
-        case (SHORTHAIR):
-            return "SHORTHAIR";
-        case (PERSIAN):
-            return "PERSIAN";
-        case (SPHYNX):
-            return "SPHYNX";
-        default:
-            return "\0";
 
-
-    }
-}
-
-    char *colorLiteral(const enum Color color) {
-        switch(color) {
-            case (UNASSIGNED):
-                return "UNASSIGNED";
-            case (BLACK):
-                return "BLACK";
-            case (WHITE):
-                return "WHITE";
-            case (RED):
-                return "RED";
-            case (BLUE):
-                return "BLUE";
-            case (GREEN):
-                return "GREEN";
-            case (PINK):
-                return "PINK";
-            default:
-                return "\0";
-
+extern bool validateDatabase() {
+    Cat* iCat = catDatabaseHeadPointer;
+    while(iCat != nullptr) {
+        if (!iCat->validate()) {
+            return false;
         }
-    }
-
-
+        iCat = iCat->next;
+        }
+        return true;
+}
 
 

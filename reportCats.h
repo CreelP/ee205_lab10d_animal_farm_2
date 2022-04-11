@@ -8,15 +8,14 @@
 /// @author Creel Patrocinio <creel@hawaii.edu>
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-#ifndef EE205_LAB_08D_ANIMAL_FARM_1_REPORTCATS_H
-#define EE205_LAB_08D_ANIMAL_FARM_1_REPORTCATS_H
+#pragma once
 #include "catDatabase.h"
-#include "validate.h"
+#include "config.h"
+
+extern bool printAllCats();
+extern Cat* findCatByName(const char* name);
+extern const char* breedName(enum Breed breed);
+extern const char* genderName(enum Gender gender);
 
 
-void printCat(const size_t index);
-void printAllCats();
-int findCat(const char *name);
 
-
-#endif //EE205_LAB_08D_ANIMAL_FARM_1_REPORTCATS_H

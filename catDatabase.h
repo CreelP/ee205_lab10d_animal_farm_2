@@ -14,67 +14,17 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include "config.h"
 #define MAX_CAT_NAME 30
 #define MAX_CAT 1024
 #define MAX_CAT_WEIGHT 1000
 
 
-extern size_t numberOfCats;
-typedef size_t NumCats;
+extern int numberOfCats;
+extern void initializeCatDatabase();
+extern bool isCatInDatabase(const Cat* aCat);
+extern bool validateDatabase();
 
-// Gender
-enum Gender {
-
-    UNKNOWN_GENDER,
-    MALE,
-    FEMALE
-
-};
-
-
-// Breed
-enum Breed {
-
-    UNKNOWN_BREED,
-    MAINE_COON,
-    MANX,
-    SHORTHAIR,
-    PERSIAN,
-    SPHYNX
-
-};
-enum Color {
-    UNASSIGNED,
-    BLACK,
-    WHITE,
-    RED,
-    BLUE,
-    GREEN,
-    PINK
-
-};
-
-struct Cat {
-    char name[MAX_CAT_NAME];
-    enum Gender gender;
-    enum Breed breed;
-    float weight;
-    bool isFixed;
-    enum Color collarColor1;
-    enum Color collarColor2;
-    unsigned long long license;
-
-
-};
-
-
-typedef float W;
-
-extern struct Cat cats[];
-void initializeCatDatabase();
-char *genderLiteral(const enum Gender gender);
-char *breedLiteral(const enum Breed breed);
-char *colorLiteral(const enum Color color);
-
+extern Cat* catDatabaseHeadPointer ;
 
 #endif //EE205_LAB_08D_ANIMAL_FARM_1_CATDATABASE_H

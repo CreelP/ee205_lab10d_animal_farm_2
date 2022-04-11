@@ -8,9 +8,33 @@
 /// @author Creel Patrocinio <creel@hawaii.edu>
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
+#include <stdexcept>
 
 #include "deleteCats.h"
+#include "config.h"
+#include "catDatabase.h"
 
-void deleteAllCats() {
-    initializeCatDatabase();
+bool deleteAllCats() {
+    while(catDatabaseHeadPointer != nullptr) {
+        deleteCat(catDatabaseHeadPointer);
+    }
+    return true;
+}
+
+bool deleteCat(Cat* deleteThisCat) {
+    Cat* iCat = catDatabaseHeadPointer;
+    if(deleteThisCat == catDatabaseHeadPointer) {
+        catDatabaseHeadPointer = catDatabaseHeadPointer->next;
+        numberOfCats = numberOfCats - 1;
+        return true;
+    }
+    while(iCat->next != nullptr) {
+        if(deleteThisCat == iCat->next) {
+            iCat->next = deleteThisCat->next;
+            numberOfCats = numberOfCats -1;
+            return true;
+        }
+        iCat = iCat->next;
+    }
+    throw std::invalid_argument(PROGRAM_NAME ": Unable to delete cat-  Cat not in database");
 }

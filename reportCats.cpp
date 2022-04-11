@@ -8,46 +8,49 @@
 /// @author Creel Patrocinio <creel@hawaii.edu>
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
+#include <stdexcept>
+#include <iostream>
 #include "reportCats.h"
 #include "config.h"
+#include "catDatabase.h"
 
-void printCat(const size_t index) {
-    if (validIndex(index) == true) {
-        printf("cat index = [%lu] name=[%s] gender = [%s] breed = [%s] isFixed = [%d] weight = [%.3f] collarColor1 = [%s] collarColor2 = [%s] license[%llu]\n",
-               index,
-               cats[index].name,
-               genderLiteral(cats[index].gender),
-               breedLiteral(cats[index].breed),
-               cats[index].isFixed,
-               cats[index].weight,
-               colorLiteral(cats[index].collarColor1),
-               colorLiteral(cats[index].collarColor2),
-               cats[index].license);
-
+bool printAllCats() {
+    Cat* iCat = catDatabaseHeadPointer;
+    while(iCat != nullptr) {
+        iCat->print();
+        iCat = iCat->next;
     }
-
-
-
+    return true;
 }
 
-void printAllCats() {
-    for (size_t index = 0; index < numberOfCats; ++index) {
-        printCat(index);
-
-    }
-}
-
-
-int findCat(const char *name) {
-    for (size_t i = 0; i < numberOfCats; ++i) {
-        if (strcmp(name, catName[i]) == 0) {
-            return i;
-
+Cat* findCatByName(const char* name) {
+    Cat* iCat = catDatabaseHeadPointer;
+    while(iCat != nullptr) {
+        if (strcmp(name,iCat->getName())==0){
+            return iCat;
         }
-
+        iCat = iCat->next;
     }
-    printf("Error: Cat not in the database %s\n", index);
-    return -1;
-
+    return nullptr;
 }
 
+const char* genderName(const enum Gender gender) {
+    switch(gender) {
+        case UNKNOWN_GENDER: return "Unknown Gender";
+        case MALE: return "Male";
+        case FEMALE: return "Female";
+    }
+    throw logic_error(PROGRAM_NAME ": Gender name not mapped to a string value");
+}
+
+const char* breedName(const enum Breed breed) {
+    switch(breed) {
+        case UNKNOWN_BREED: return "Unknown Breed";
+        case MAINE_COON: return "Maine Coon";
+        case MANX: return "Manx";
+        case SHORTHAIR: return "Shorthair";
+        case PERSIAN: return "Persian";
+        case SPHYNX: return "Sphynx";
+    }
+    throw logic_error(PROGRAM_NAME ": Breed name not mapped to a string value");
+}
