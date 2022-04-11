@@ -11,6 +11,7 @@
 #pragma once
 #include "catDatabase.h"
 #include "config.h"
+#include "Cat.h"
 
 extern bool printAllCats();
 extern Cat* findCatByName(const char* name);

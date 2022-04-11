@@ -11,6 +11,7 @@
 
 #include "catDatabase.h"
 #include "config.h"
+#include "Cat.h"
 #include <stdexcept>
 
 Cat* catDatabaseHeadPointer = nullptr;

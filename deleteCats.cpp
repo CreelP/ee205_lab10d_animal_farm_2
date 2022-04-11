@@ -13,6 +13,7 @@
 #include "deleteCats.h"
 #include "config.h"
 #include "catDatabase.h"
+#include "Cat.h"
 
 bool deleteAllCats() {
     while(catDatabaseHeadPointer != nullptr) {

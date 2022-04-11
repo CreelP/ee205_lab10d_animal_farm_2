@@ -13,6 +13,7 @@
 #include "reportCats.h"
 #include "config.h"
 #include "catDatabase.h"
+#include "Cat.h"
 
 bool printAllCats() {
     Cat* iCat = catDatabaseHeadPointer;

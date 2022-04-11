@@ -15,6 +15,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "config.h"
+#include "Cat.h"
 #define MAX_CAT_NAME 30
 #define MAX_CAT 1024
 #define MAX_CAT_WEIGHT 1000

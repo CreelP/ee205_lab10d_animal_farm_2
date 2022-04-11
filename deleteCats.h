@@ -10,6 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 #include "catDatabase.h"
+#include "Cat.h"
 
 extern bool deleteAllCats();
 extern bool deleteCat(Cat* deleteThisCat);

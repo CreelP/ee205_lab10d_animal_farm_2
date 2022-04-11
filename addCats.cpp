@@ -12,7 +12,7 @@
 #include "config.h"
 #include "catDatabase.h"
 #include <iostream>
-
+#include "Cat.h"
 
 extern bool addCat(Cat* newCat) {
     if(newCat != nullptr && isCatInDatabase(newCat)==false){

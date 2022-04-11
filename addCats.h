@@ -10,6 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 #include "catDatabase.h"
+#include "Cat.h"
 
 extern bool addCat(Cat* newCat);
 extern bool isCatInDatabase(char name[]);

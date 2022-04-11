@@ -10,6 +10,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 #include "config.h"
+#include <cstdio>
+#include <cstring>
 #define MAX_CAT_NAME 30
 
 // Cat class spec:
@@ -37,7 +39,7 @@ private:
 public:
     Cat *next;
     Cat();
-    Cat( const char *newName, const Gender newGender, const Breed newBreed, const Weight newWeight );
+    Cat(const char *newName, const Gender newGender, const Breed newBreed, const Weight newWeight);
     virtual ~Cat();
 
 public:
