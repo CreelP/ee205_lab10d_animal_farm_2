@@ -20,6 +20,7 @@ int numberOfCats = 0;
 void initializeCatDatabase() {
     if(catDatabaseHeadPointer != nullptr) {
         throw std::logic_error(PROGRAM_NAME ":Previous database not empty.");
+    }
 }
 
 

@@ -41,7 +41,7 @@ const char* genderName(const enum Gender gender) {
         case MALE: return "Male";
         case FEMALE: return "Female";
     }
-    throw logic_error(PROGRAM_NAME ": Gender name not mapped to a string value");
+    return nullptr;
 }
 
 const char* breedName(const enum Breed breed) {
@@ -53,5 +53,5 @@ const char* breedName(const enum Breed breed) {
         case PERSIAN: return "Persian";
         case SPHYNX: return "Sphynx";
     }
-    throw logic_error(PROGRAM_NAME ": Breed name not mapped to a string value");
+    return nullptr;
 }
