@@ -25,14 +25,38 @@
 
 class Cat {
 protected:
-    char name[MAX_NAME_LENGTH];
+    char name[MAX_CAT_NAME];
     enum Gender gender;
     enum Breed breed;
     bool isCatFixed;
     Weight weight;
 
+private:
+    void zeroOutMemberData();
+
 public:
     Cat *next;
+    Cat();
+    Cat( const char *newName, const Gender newGender, const Breed newBreed, const Weight newWeight );
+    virtual ~Cat();
+
+public:
+    const char *getName() const noexcept;
+    void setName(const char* newName);
+    Gender getGender() const noexcept;
+    Breed getBreed() const noexcept;
+    bool isFixed() const noexcept;
+    void fixCat() noexcept;
+    Weight getWeight() const noexcept;
+    void setWeight(Weight newWeight);
+    void setGender(Gender newGender);
+    void setBreed(Breed newBreed);
+    bool print() const noexcept;
+    bool validate() const noexcept;
+    static bool validateName(const char *newName);
+    static bool validateGender(const Gender newGender);
+    static bool validateBreed(const Breed newBreed);
+    static bool validateWeight(const Weight newWeight);
 
 
-}
+};
