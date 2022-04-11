@@ -8,11 +8,21 @@
 /// @author Creel Patrocinio <creel@hawaii.edu>
 /// @date   20_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-#ifndef EE205_LAB_08D_ANIMAL_FARM_1_CONFIG_H
-#define EE205_LAB_08D_ANIMAL_FARM_1_CONFIG_H
+#pragma once
+#define PROGRAM_NAME "animalfarm2"
+#define PROGRAM_TITLE "Animal Farm 2"
 
-#define DEBUG_ENABLE
-#define PROGRAM_NAME "Animal Farm 1"
-#define BAD_CAT -1
+enum Gender{UNKNOWN_GENDER=0,
+            MALE,
+            FEMALE};
 
-#endif //EE205_LAB_08D_ANIMAL_FARM_1_CONFIG_H
+enum Breed{UNKNOWN_BREED=0,
+            MAINE_COON,
+            MANX,
+            SHORTHAIR,
+            PERSIAN,
+            SPHYNX};
+
+
+typedef float Weight;
+const Weight UNKNOWN_WEIGHT = -1;
